@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Title Page</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        
+        <div class="container">
+            <h1>Danh sách tài khoản</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width: 60px;text-align: center">STT</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                <% customers.forEach((item, key) => { %>
+                    <tr>
+                        <td style="text-align: center"><%= key+1 %></td>
+                        <td><%= item.name %></td>
+                        <td><%= item.address %></td>
+                        <td>
+                            <a href="/edit/<%= item._id %>" class="btn btn-sm btn-primary">Sửa</a>
+                            <a href="/delete/<%= item._id %>" class="btn btn-sm btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                <% }) %>
+
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
